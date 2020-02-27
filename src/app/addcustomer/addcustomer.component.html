@@ -1,0 +1,185 @@
+<div style="height: 100%;">
+
+  <h1 fxLayout="row" fxLayoutAlign="center center">Add Customer</h1>
+
+  <div fxLayout="row" fxLayoutAlign="start center" style="width:100%;">
+    <div fxLayout="row" style="width:10%" fxLayoutAlign="center center">
+      <label>First Name</label>
+    </div>
+    <div fxLayout="row" style="width:80%" fxLayoutAlign="end end">
+      <mat-form-field style="width:95%" appearance="outline">
+        <input matInput class="form-control " name="fname" required [(ngModel)]="userModel.fname" #fname="ngModel"
+          pattern="[a-zA-z   ]+$" placeholder="First Name" />
+        <mat-error>
+          <div class="form-group">
+            <div *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+              First Name Is Requird
+            </div>
+          </div>
+        </mat-error>
+
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start center" style="width:100%;margin-top:15px">
+    <div fxLayout="row" style="width:10%" fxLayoutAlign="center center">
+      <label>Last Name</label>
+    </div>
+    <div fxLayout="row" style="width:80%" fxLayoutAlign="end end">
+      <mat-form-field style="width:95%" appearance="outline">
+        <input matInput class="form-control " name="lname" required [(ngModel)]="userModel.lname" #lname="ngModel"
+          pattern="[a-zA-z]+$" placeholder="Last Name" />
+        <mat-error>
+          <div class="form-group">
+            <div *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+              Last Name Is Requird
+            </div>
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start center" style="width:100%;margin-top:15px">
+    <div fxLayout="row" style="width:10%" fxLayoutAlign="center center">
+      <label>Mobile</label>
+    </div>
+    <div fxLayout="row" style="width:80%" fxLayoutAlign="end end">
+      <mat-form-field style="width:95%" appearance="outline">
+        <input matInput class="form-control " name="mobile" type="tel" minlength="10" maxlength="10" id="mobile"
+          required [(ngModel)]="userModel.mobile" #mobile="ngModel" pattern="[0-9]+$" placeholder="Mobile" />
+
+        <mat-error>
+          <div class="form-group">
+            <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+              Mobile Number Is Requird
+            </div>
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start center" style="width:100%;margin-top:15px">
+    <div fxLayout="row" style="width:10%" fxLayoutAlign="center center">
+      <label>Address</label>
+    </div>
+    <div fxLayout="row" style="width:80%" fxLayoutAlign="end end">
+      <mat-form-field style="width:95%" appearance="outline">
+        <textarea matInput class="form-control " name="address" [(ngModel)]="userModel.address" #address="ngModel"
+          pattern="[a-zA-z  .]+$" placeholder="Address"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <div fxLayout="row" fxLayoutAlign="start center" style="width:100%;margin-top:15px">
+    <div fxLayout="row" style="width:10%" fxLayoutAlign="center center">
+      <label>Note</label>
+    </div>
+    <div fxLayout="row" style="width:80%" fxLayoutAlign="end end">
+      <mat-form-field style="width:95%" appearance="outline">
+        <textarea matInput class="form-control " name="note" [(ngModel)]="userModel.note" #note="ngModel"
+          pattern="[a-zA-z  .]+$" placeholder="Note"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center" style="margin-top:15px; width:100%">
+    <button mat-raised-button [disabled]="mobile.invalid || address.invalid || fname.invalid || lname.invalid "
+      class="submitButton" (click)="addCustomerData()">Save</button>
+
+  </div>
+
+</div>
+
+
+
+<!-- <form #userForm="ngForm">
+
+  <div fxLayout="column" fxLayoutAlign="center center" style="width:100%; ">
+
+
+    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+      <mat-form-field style="width:95%">
+        <input matInput class="form-control " name="fname" required [(ngModel)]="userModel.fname" #fname="ngModel"
+          pattern="[a-zA-z   ]+$" placeholder="First Name" />
+        <mat-error>
+          <div class="form-group">
+            <div *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+              First Name Is Requird
+            </div>
+          </div>
+        </mat-error>
+
+      </mat-form-field>
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+      <mat-form-field style="width:95%">
+        <input matInput class="form-control " name="lname" required [(ngModel)]="userModel.lname" #lname="ngModel"
+          pattern="[a-zA-z]+$" placeholder="Last Name" />
+        <mat-error>
+          <div class="form-group">
+            <div *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+              Last Name Is Requird
+            </div>
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+      <mat-form-field style="width:95%">
+        <input matInput class="form-control " name="mobile" type="tel" minlength="10" maxlength="10" id="mobile"
+          required [(ngModel)]="userModel.mobile" #mobile="ngModel" pattern="[0-9]+$" placeholder="Mobile" />
+
+        <mat-error>
+          <div class="form-group">
+            <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+              Mobile Number Is Requird
+            </div>
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+      <mat-form-field style="width:95%">
+        <input matInput class="form-control " name="email" [(ngModel)]="userModel.email" #email="ngModel"
+          pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" />
+        <mat-error>
+          <div class="form-group">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+              Email Is Requird
+            </div>
+          </div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+      <mat-form-field style="width:95%">
+        <textarea matInput class="form-control " name="address" [(ngModel)]="userModel.address" #address="ngModel"
+          pattern="[a-zA-z  .]+$" placeholder="Address"></textarea>
+      </mat-form-field>
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+      <mat-form-field style="width:95%">
+        <textarea matInput class="form-control " name="note" [(ngModel)]="userModel.note" #note="ngModel"
+          pattern="[a-zA-z  .]+$" placeholder="Note"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" style="margin-top:15px; width:100%">
+      <button mat-raised-button [disabled]="mobile.invalid || address.invalid || fname.invalid || lname.invalid "
+        class="submitButton" (click)="addCustomerData()">Save</button>
+
+    </div>
+
+  </div>
+</form> -->

@@ -1,0 +1,14 @@
+<mat-list >
+  <div fxlayout="row" fxLayoutAlign="start center" style="margin-left:20px">
+    <img fxlayout="row" fxLayoutAlign="center center" src="../../assets/newimages/loginback.jpg" style="height:80px;width:80px;border-radius: 50%;margin-bottom: 20px;"/>
+  </div>
+
+    <ng-container *ngFor="let menu of menuItems; let i = index;">
+
+      <mat-list-item class="pointer outline-none" routerLink="{{menu.url}}" style=" color:white;">
+        <mat-icon  mat-list-icon>{{menu.icon}}</mat-icon>
+        <p mat-line > {{menu.name}} </p>
+      </mat-list-item>
+      <mat-divider *ngIf="i < (menuItems.length - 1)"></mat-divider>
+    </ng-container>
+  </mat-list>

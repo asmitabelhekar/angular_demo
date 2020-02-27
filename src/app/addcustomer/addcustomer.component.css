@@ -1,0 +1,22 @@
+ .submitButton{
+   
+        height: 48px;	
+        width: 25%; 
+         margin-left: 15%; 
+        margin-right: 15%;
+        border-radius: 25px;	
+        background-color: #2e2d2d;
+        color: #FFFFFF;	
+        font-family: 'Roboto',sans-serif;	
+        font-size: 15px;	
+       
+    }
+
+    .cl_input_css{
+        width:90%;
+        height:35px;
+         border: 1px solid gray; 
+        border-radius: 5px;
+    }
+
+    

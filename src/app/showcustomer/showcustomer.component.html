@@ -1,0 +1,30 @@
+<!-- <div fxlayout="row" fxLayoutAlign="center center"> -->
+   
+    <div fxlayout="row" fxLayoutAlign="center center" style="width:100%;padding:15px;border-bottom: 1px solid black">
+       
+        <div  style="width:80%">
+            <label><b>Name</b></label>
+        </div>
+        <div style="width:10%">
+            <label><b>Update Record</b></label>
+        </div>
+        <div style="width:10%">
+            <label><b>Delete Record</b></label>
+        </div>
+
+    </div>
+    <div fxlayout="row" fxLayoutAlign="center center" *ngFor="let item of getCusstomers" style="width:100%;padding:15px;border-bottom: 1px solid black">
+       
+        <div  style="width:80%"  fxLayoutAlign="start center">
+            <img src="../../assets/newimages/loginback.jpg" style="border-radius: 50%;width:30px; height: 30px"/>
+            <label style="margin-left: 20px">{{item.firstName}} {{item.lastName}}</label>
+        </div>
+        <div style="width:10%">
+            <button mat-raised-button class="button_background" (click)="updateRecord(item.id)">UPDATE</button>
+        </div>
+        <div style="width:10%">
+            <button mat-raised-button class="button_background" (click)="deteteRecord(item.id)">REMOVE</button>
+        </div>
+
+    </div>
+<!-- </div> -->

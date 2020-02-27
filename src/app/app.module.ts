@@ -3,14 +3,42 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { StructureComponent } from './structure/structure.component';
+import { ShowcustomerComponent } from './showcustomer/showcustomer.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule, MatFormFieldModule, MatFormFieldControl, MatInputModule, MatIconModule, MatListModule, MatTabsModule} from '@angular/material'
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddcustomerComponent,
+    StructureComponent,
+    ShowcustomerComponent,
+    LoginComponent,
+    NavbarComponent,
+    DashboardComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule,
+    FormsModule,
+    MatIconModule,
+    MatListModule,
+    FlexLayoutModule,
+    MatInputModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

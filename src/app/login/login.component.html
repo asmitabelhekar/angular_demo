@@ -1,0 +1,78 @@
+<!-- <p>login works!</p>
+<button (click)="nextpage()">next</button> -->
+
+<div fxLayout="row" fxLayoutAlign="start end" style="width:100%;height: 100%;">
+  
+    <div fxLayout="column" fxLayoutAlign="center end"  style="width:50%;height: 100%;">
+            <div fxLayout="column" fxLayoutAlign="center center" class="cl_div_border" style=" border-left: 15px solid rgb(143, 140, 140);">
+            <img  style="width:100%; height:100%" src="../../assets/newimages/loginback.jpg"/>
+            </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center start"  style="width:50%; height: 100%;">
+        <div fxLayout="column" fxLayoutAlign="start center" class="cl_div_border" style=" border-right: 15px solid rgb(143, 140, 140);">
+           
+              <mat-tab-group style=" margin-top:15%">
+                <mat-tab label="Login">
+                    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%;margin-top:10%">
+                        <mat-form-field style="width:95%">
+                            <input matInput class="form-control " name="mobile" type="number" [(ngModel)]="loginModel.mobile" #mobile="ngModel"
+                              pattern="[0-9]+$" placeholder="Mobile" />
+                          </mat-form-field>
+                          </div>
+                       
+                          
+                          <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                            <mat-form-field style="width:95%">
+                            <input matInput class="form-control " type="password" name="password" [(ngModel)]="loginModel.password" #password="ngModel"
+                              pattern="[a-zA-z0-9  .]+$" placeholder="Password" />
+                          </mat-form-field>
+                          </div>
+
+                          <div fxLayout="row" fxLayoutAlign="center center" style="width:100%;margin-top:15px">
+                            <button mat-raised-button (click)="login()" class="button_background">LOGIN</button>    
+                            </div>
+
+                          <!-- <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                        <button style="width:100%; background: aqua;height:40px">LOGIN</button>    
+                        </div> -->
+                         
+
+                </mat-tab>
+                <mat-tab label="Register">
+                    
+                    <div fxLayout="row" fxLayoutAlign="center center" style="width:100%;margin-top:10%">
+                        <mat-form-field style="width:95%">
+                            <input matInput class="form-control " name="mobile" type="number" [(ngModel)]="loginModel.mobile" #mobile="ngModel"
+                              pattern="[0-9]+$" placeholder="Mobile" />
+                          </mat-form-field>
+                          </div>
+                       
+                          <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                            <mat-form-field style="width:95%">
+                            <input matInput class="form-control " type="email" name="email" [(ngModel)]="loginModel.email" #email="ngModel"
+                              pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" />
+                          </mat-form-field>
+                          </div>
+                          
+                          <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                            <mat-form-field style="width:95%">
+                            <input matInput class="form-control " type="password" name="password" [(ngModel)]="loginModel.password" #password="ngModel"
+                              pattern="[a-zA-z0-9  .]+$" placeholder="Password" />
+                          </mat-form-field>
+                          </div>
+
+                          <div fxLayout="row" fxLayoutAlign="center center" style="width:100%; margin-top:15px">
+                            <button mat-raised-button (click)="signUp()" class="button_background" >SIGN UP</button>    
+                            </div>
+                        
+                          <!-- <div fxLayout="row" fxLayoutAlign="center center" style="width:100%">
+                            <button mat-button style="width:100%; background: aqua;height:40px">SIGN UP</button>    
+                            </div> -->
+                        </mat-tab>
+                
+              </mat-tab-group>
+              
+        </div>
+</div>
+</div>
