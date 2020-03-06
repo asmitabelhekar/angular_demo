@@ -3,45 +3,58 @@
 
         <div fxLayout="column" style="width:50%; height:100%;">
 
-            <div fxLayout="row" fxLayoutAlign="start center">
-                <label>Customer Name :</label>
-                <input [(ngModel)]="userModel.name" placeholder="Customer Name" />
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field class="cl_width">
+                    <mat-label>Customer Name</mat-label>
+                    <select matNativeControl required #customer (change)="getCustomerDetailInfo(customer.value)"
+                        [(ngModel)]="userModel.customername">
+                        <option *ngFor="let type of customername" [value]="type.name"> {{type.name}}</option>
+                    </select>
+                </mat-form-field>
+            </div>
+
+
+
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field class="cl_width">
+                    <input matInput [(ngModel)]="userModel.mobile" placeholder="Phone Number" />
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field class="cl_width">
+                    <input matInput [(ngModel)]="userModel.email" placeholder="Email" />
+                </mat-form-field>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center">
-                <label>Phone Number :</label>
-                <input [(ngModel)]="userModel.mobile" placeholder="Phone Number" />
-            </div>
-            <div fxLayout="row" fxLayoutAlign="start center">
-                <label>Email :</label>
-                <input [(ngModel)]="userModel.email" placeholder="Email" />
-            </div>
-            <div fxLayout="row" fxLayoutAlign="start center">
-                <label>Address :</label>
-                <input placeholder="Address" [(ngModel)]="userModel.address" />
+                <mat-form-field class="cl_width">
+                    <input matInput placeholder="Address" [(ngModel)]="userModel.address" />
+                </mat-form-field>
             </div>
 
         </div>
-        <div style="background-color: rgb(0, 139, 42);width:50%; height:50%">
-            <div fxLayout="column" style="width:50%; height:100%;margin:15px">
+        <div style="width:50%; height:100%" fxLayout="column">
 
-                <div fxLayout="row" fxLayoutAlign="start center">
-                    <label>Customer Name :</label>
-                    <input placeholder="Customer Name" />
+                <div fxLayout="row" fxLayoutAlign="end end">
+                    <mat-form-field class="cl_width">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput #input="ngModel" [(ngModel)]="userModel.date" [min]="minDate" [max]="today"
+                          [matDatepicker]="picker" placeholder="Choose a date" [disabled]="true">
+                        <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="true"></mat-datepicker-toggle>
+                        <mat-datepicker #picker (selectedChanged)="onDate($event)"></mat-datepicker>
+                      </mat-form-field>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="start center">
-                    <label>Phone Number :</label>
-                    <input placeholder="Phone Number" />
+                <div fxLayout="row" fxLayoutAlign="end end">
+                    <mat-form-field class="cl_width">
+                        <input matInput placeholder="Purchase Order" [(ngModel)]="userModel.purchaseorder" />
+                    </mat-form-field>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="start center">
-                    <label>Email :</label>
-                    <input placeholder="Email" />
+                <div fxLayout="row" fxLayoutAlign="end end">
+                    <mat-form-field class="cl_width">
+                        <input matInput placeholder="Customer No." [(ngModel)]="userModel.customerno" />
+                    </mat-form-field>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="start center">
-                    <label>Address :</label>
-                    <input placeholder="Address" />
-                </div>
+              
 
-            </div>
         </div>
 
 
@@ -53,32 +66,40 @@
 
         <div fxLayout="column" style="width:15%">
             <label fxLayoutAlign="center center">Product</label><br />
-            <input [(ngModel)]="recordModel.product" style="border: 1px solid black;padding: 5px;margin-top:20px"
-                fxLayoutAlign="end end" placeholder="Product" />
+            <mat-form-field>
+                <select matNativeControl #product (change)="getProductDetailInfo(product.value)" style="margin-top:10px"
+                    [(ngModel)]="recordModel.name">
+                    <option *ngFor="let type of products" [value]="type.p_name"> {{type.p_name}}</option>
+                </select>
+            </mat-form-field>
         </div>
         <div fxLayout="column" style="width:15%">
             <label fxLayoutAlign="center center">Price</label><br />
-            <input [(ngModel)]="recordModel.price" style="border: 1px solid black;padding: 5px;margin-top:20px"
-                fxLayoutAlign="end end" placeholder="Price" />
+            <input [(ngModel)]="recordModel.price" (input)="totalAmount($event)"
+                style="border: 1px solid black;padding: 5px;margin-top:20px" fxLayoutAlign="end end"
+                placeholder="Price" />
         </div>
 
         <div fxLayout="column" style="width:15%">
             <label fxLayoutAlign="center center">Quantity</label><br />
-            <input [(ngModel)]="recordModel.quantity" style="border: 1px solid black;padding: 5px;margin-top:20px"
-                fxLayoutAlign="end end" placeholder="Quantity" />
+            <input [(ngModel)]="recordModel.quantity" (input)="totalAmount($event)"
+                style="border: 1px solid black;padding: 5px;margin-top:20px" fxLayoutAlign="end end"
+                placeholder="Quantity" />
         </div>
 
         <div fxLayout="column" style="width:15%">
             <label fxLayoutAlign="center center">Total Price</label><br />
-            <input [(ngModel)]="recordModel.totalprice" style="border: 1px solid black;padding: 5px;margin-top:20px"
-                fxLayoutAlign="end end" placeholder="Total Price" />
+            <input [(ngModel)]="recordModel.totalprice" (input)="finalAmount($event)"
+                style="border: 1px solid black;padding: 5px;margin-top:20px" fxLayoutAlign="end end"
+                placeholder="Total Price" />
         </div>
 
 
         <div fxLayout="column" style="width:15%">
-            <label fxLayoutAlign="center center">GST</label><br /><br />
-            <input [(ngModel)]="recordModel.gst" style="border: 1px solid black;padding: 5px;margin-top:20px"
-                fxLayoutAlign="end end" placeholder="GST" />
+            <label fxLayoutAlign="center center">GST%</label><br /><br />
+            <input [(ngModel)]="recordModel.gst" (input)="finalAmount($event)"
+                style="border: 1px solid black;padding: 5px;margin-top:20px" fxLayoutAlign="end end"
+                placeholder="GST" />
         </div>
 
         <div fxLayout="column" style="width:15%">
@@ -104,25 +125,25 @@
             <th>Update</th>
             <th>Delete</th>
 
-            <tr style="border: 1px solid grey" *ngFor="let item of getAllFieldsRecord" >
-                <td >{{ item.product_name }}</td>
-                <td>{{ item.product_price }}</td>
-                <td>{{ item.product_quantity }}</td>
-                <td>{{ item.product_total_price }}</td>
-                <td>{{ item.product_gst }}</td>
-                <td>{{ item.product_final_price }}</td>
-                <td align="center" style="color:blue"><u>edit</u></td>
-                <td  align="center" style="color:blue"><u>delete</u></td>
+            <tr style="border: 1px solid grey" *ngFor="let item of getAllFieldsRecord;let i = index;">
+                <td align="center">{{ item.product_name }}</td>
+                <td align="center">{{ item.product_price }}</td>
+                <td align="center">{{ item.product_quantity }}</td>
+                <td align="center">{{ item.product_total_price }}</td>
+                <td align="center">{{ item.product_gst }}</td>
+                <td align="center">{{ item.product_final_price }}</td>
+                <td align="center" style="color:blue" (click)="updateProduct(i, item)"><u>edit</u></td>
+                <td align="center" style="color:blue" (click)="deleteProduct(i)"><u>delete</u></td>
             </tr>
-            <tr >
+            <tr>
                 <td align="center">Amount</td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td align="center">20000</td>
-                <td ></td>
-                <td  ></td>
+                <td align="center">{{displayFinalAmount}}</td>
+                <td></td>
+                <td></td>
             </tr>
         </table>
     </div>

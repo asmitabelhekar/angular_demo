@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatFormFieldModule, MatFormFieldControl, MatInputModule, MatIconModule, MatListModule, MatTabsModule} from '@angular/material'
+import { MatCardModule, MatFormFieldModule, MatFormFieldControl, MatInputModule, MatIconModule, MatListModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material'
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -41,6 +41,8 @@ import { SalesComponent } from './sales/sales.component';
     MatListModule,
     FlexLayoutModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatTabsModule,
     MatFormFieldModule,
     HttpClientModule,

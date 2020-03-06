@@ -11,3 +11,7 @@ table, th , td  {
   table tr:nth-child(even) {
     background-color: #ffffff;
   }
+
+  .cl_width{
+    width:60%;
+  }
