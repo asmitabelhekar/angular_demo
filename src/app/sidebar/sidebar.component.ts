@@ -25,6 +25,21 @@ export class SidebarComponent implements OnInit {
       icon: 'description',
       name: 'Add Customer',
       url: '/dashboard/addcustomer'
+    },
+    {
+      icon: 'description',
+      name: 'Purchase Order',
+      url: '/dashboard/purchaseorder'
+    },
+    {
+      icon: 'description',
+      name: 'GRN',
+      url: '/dashboard/grn'
+    },
+    {
+      icon: 'description',
+      name: 'Sales',
+      url: '/dashboard/sales'
     }
   ]
   constructor() { }

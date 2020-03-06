@@ -1,0 +1,217 @@
+<div style="width:100%;height: 100%" style="margin:15px">
+    <div fxLayout="row" fxLayoutAlign="start start">
+
+        <div fxLayout="column" style="width:50%; height:100%;">
+
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <label>Customer Name :</label>
+                <input [(ngModel)]="userModel.name" placeholder="Customer Name" />
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <label>Phone Number :</label>
+                <input [(ngModel)]="userModel.mobile" placeholder="Phone Number" />
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <label>Email :</label>
+                <input [(ngModel)]="userModel.email" placeholder="Email" />
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <label>Address :</label>
+                <input placeholder="Address" [(ngModel)]="userModel.address" />
+            </div>
+
+        </div>
+        <div style="background-color: rgb(0, 139, 42);width:50%; height:50%">
+            <div fxLayout="column" style="width:50%; height:100%;margin:15px">
+
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <label>Customer Name :</label>
+                    <input placeholder="Customer Name" />
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <label>Phone Number :</label>
+                    <input placeholder="Phone Number" />
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <label>Email :</label>
+                    <input placeholder="Email" />
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <label>Address :</label>
+                    <input placeholder="Address" />
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div style=" border : 0.1px solid rgb(150, 147, 147)"></div>
+
+    <h1>Place your order here</h1>
+    <div fxLayout="row" fxLayoutAlign="space-around center" style="margin-top:20px">
+
+        <div fxLayout="column" style="width:15%">
+            <label fxLayoutAlign="center center">Product</label><br />
+            <input [(ngModel)]="recordModel.product" style="border: 1px solid black;padding: 5px;margin-top:20px"
+                fxLayoutAlign="end end" placeholder="Product" />
+        </div>
+        <div fxLayout="column" style="width:15%">
+            <label fxLayoutAlign="center center">Price</label><br />
+            <input [(ngModel)]="recordModel.price" style="border: 1px solid black;padding: 5px;margin-top:20px"
+                fxLayoutAlign="end end" placeholder="Price" />
+        </div>
+
+        <div fxLayout="column" style="width:15%">
+            <label fxLayoutAlign="center center">Quantity</label><br />
+            <input [(ngModel)]="recordModel.quantity" style="border: 1px solid black;padding: 5px;margin-top:20px"
+                fxLayoutAlign="end end" placeholder="Quantity" />
+        </div>
+
+        <div fxLayout="column" style="width:15%">
+            <label fxLayoutAlign="center center">Total Price</label><br />
+            <input [(ngModel)]="recordModel.totalprice" style="border: 1px solid black;padding: 5px;margin-top:20px"
+                fxLayoutAlign="end end" placeholder="Total Price" />
+        </div>
+
+
+        <div fxLayout="column" style="width:15%">
+            <label fxLayoutAlign="center center">GST</label><br /><br />
+            <input [(ngModel)]="recordModel.gst" style="border: 1px solid black;padding: 5px;margin-top:20px"
+                fxLayoutAlign="end end" placeholder="GST" />
+        </div>
+
+        <div fxLayout="column" style="width:15%">
+            <label fxLayoutAlign="center center">Final Price</label><br />
+            <input [(ngModel)]="recordModel.finalprice" style="border: 1px solid black;padding: 5px;margin-top:20px"
+                fxLayoutAlign="end end" placeholder="Final Price" />
+        </div>
+
+
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end end">
+        <button mat-raised (click)="addMore()">Add More</button>
+    </div>
+    <div *ngIf="getAllFieldsRecord.length > 0" fxLayoutAlign="center center">
+        <table style="border: 1px solid grey;width:100%">
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>GST</th>
+            <th>Final Price</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+            <tr style="border: 1px solid grey" *ngFor="let item of getAllFieldsRecord" >
+                <td >{{ item.product_name }}</td>
+                <td>{{ item.product_price }}</td>
+                <td>{{ item.product_quantity }}</td>
+                <td>{{ item.product_total_price }}</td>
+                <td>{{ item.product_gst }}</td>
+                <td>{{ item.product_final_price }}</td>
+                <td align="center" style="color:blue"><u>edit</u></td>
+                <td  align="center" style="color:blue"><u>delete</u></td>
+            </tr>
+            <tr >
+                <td align="center">Amount</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center">20000</td>
+                <td ></td>
+                <td  ></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- <div fxLayout="column" style="border:1px solid grey;padding:5px">
+
+        <div fxLayout="row" style="border-bottom:1px solid grey;padding:5px" fxLayoutAlign="space-around center">
+
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Product</label><br/>
+            </div>
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Price</label><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Quantity</label><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Total Price</label><br/>
+            </div>
+    
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">GST</label><br/><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Final Price</label><br/>
+            </div>
+    
+            
+        </div>
+        <div fxLayout="row" style="border-bottom:1px solid grey;padding:5px" fxLayoutAlign="space-around center">
+
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Product</label><br/>
+            </div>
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Price</label><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Quantity</label><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Total Price</label><br/>
+            </div>
+    
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">GST</label><br/><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Final Price</label><br/>
+            </div>
+    
+            
+        </div>
+        <div fxLayout="row" style="border-bottom:1px solid grey;padding:5px" fxLayoutAlign="space-around center">
+
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Product</label><br/>
+            </div>
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Price</label><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Quantity</label><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Total Price</label><br/>
+            </div>
+    
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">GST</label><br/><br/>
+            </div>
+    
+            <div fxLayout="column"  style="width:15%"> 
+                <label  fxLayoutAlign="center center">Final Price</label><br/>
+            </div>
+    
+            
+        </div>
+  </div> -->
+</div>

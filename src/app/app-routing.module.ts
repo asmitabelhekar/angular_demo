@@ -4,6 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { StructureComponent } from './structure/structure.component';
 import { AddcustomerComponent } from './addcustomer/addcustomer.component';
 import { ShowcustomerComponent } from './showcustomer/showcustomer.component';
+import { PurchasrorderComponent } from './purchasrorder/purchasrorder.component';
+import { GrnComponent } from './grn/grn.component';
+import { SalesComponent } from './sales/sales.component';
 
 
 const routes: Routes = 
@@ -19,6 +22,15 @@ const routes: Routes =
           },
           {
             path: 'showcustomer', component: ShowcustomerComponent,
+          },
+          {
+            path: 'purchaseorder', component: PurchasrorderComponent,
+          },
+          {
+            path: 'grn', component: GrnComponent,
+          },
+          {
+            path: 'sales', component: SalesComponent,
           }
 
 ]

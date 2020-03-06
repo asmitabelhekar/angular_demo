@@ -15,6 +15,9 @@ import { MatCardModule, MatFormFieldModule, MatFormFieldControl, MatInputModule,
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { PurchasrorderComponent } from './purchasrorder/purchasrorder.component';
+import { GrnComponent } from './grn/grn.component';
+import { SalesComponent } from './sales/sales.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +28,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     DashboardComponent,
     SidebarComponent,
+    PurchasrorderComponent,
+    GrnComponent,
+    SalesComponent,
   ],
   imports: [
     BrowserModule,
