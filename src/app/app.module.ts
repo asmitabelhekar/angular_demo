@@ -14,10 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatFormFieldModule, MatFormFieldControl, MatInputModule, MatIconModule, MatListModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material'
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PurchasrorderComponent } from './purchasrorder/purchasrorder.component';
 import { GrnComponent } from './grn/grn.component';
 import { SalesComponent } from './sales/sales.component';
+import {DropdownModule} from 'primeng/dropdown';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {ButtonModule} from 'primeng/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +44,12 @@ import { SalesComponent } from './sales/sales.component';
     MatIconModule,
     MatListModule,
     FlexLayoutModule,
+    DropdownModule,
+    ButtonModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatDatepickerModule,
+    SelectButtonModule,
     MatNativeDateModule,
     MatTabsModule,
     MatFormFieldModule,
